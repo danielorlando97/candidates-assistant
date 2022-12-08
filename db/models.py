@@ -22,3 +22,17 @@ class MongoJob(JobDetails):
             date, salary, seniority, 
             portal, url_to_apply_quick
         )
+
+class MongoTokens:
+    def __init__(self, name: str, doc_list: set, current_value: None) -> None:
+        assert name != ''
+        assert len(doc_list) != 0
+
+        self.name = name
+
+        if current_value:
+            for doc in current_value['docList']:
+                doc_list.add(doc)
+
+        self.docList = list(doc_list)
+
